@@ -1,0 +1,22 @@
+org: studyuse
+app: aws-python-http-api-project  # This will group your service under this app
+service: aws-python-http-api-project
+
+provider:
+  name: aws
+  runtime: python3.12
+  region: us-west-2
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - httpApi:
+          path: /hello
+          method: get
+  bye:
+    handler: handler.bye
+    events:
+      - httpApi:
+          path: /bye
+          method: get
